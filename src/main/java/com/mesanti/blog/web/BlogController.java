@@ -50,13 +50,12 @@ public class BlogController {
 	
 	@GetMapping("/login")
 	public String showLoginPage(@RequestParam(value = "error",required = false) String error,
-			@RequestParam(value = "logout",	required = false) String logout,Model model) {
+								@RequestParam(value = "logout",	required = false) String logout,Model model) {
 		logger.info("This is login page URL   ");
 		
 		if (error != null) {
 			model.addAttribute("error", "Invalid Credentials provided.");
 		}
-
 		if (logout != null) {
 			model.addAttribute("message", "Logged out");
 		}
@@ -74,8 +73,8 @@ public class BlogController {
 	}
 	
 	@PostMapping("/addNewBlog")
-	public String addNewBlog(@RequestParam(value = "title",required = true) String title,
-			 @RequestParam(value = "body",required = true) String body,Model model) {
+	public String addNewBlog(	@RequestParam(value = "title",required = true) String title,
+			 					@RequestParam(value = "body",required = true) String body,Model model) {
 		
 		logger.info("Adding new blog with title :"+title );
 		Blog blog = new Blog();
@@ -264,9 +263,10 @@ public class BlogController {
 	 */
 	@ModelAttribute("validUserLogin")
 	public boolean isUserLoggedIn() {
-		return SecurityContextHolder.getContext().getAuthentication() != null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+		return SecurityContextHolder.getContext().getAuthentication() != null 
+				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() 
 				 //when Anonymous Authentication is enabled
-				 !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken); 
+				&& !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken); 
 	}
 	
 	@ModelAttribute("hasAdminRole")
