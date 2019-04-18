@@ -183,8 +183,7 @@ public class BlogController {
 	}
 	
 	@GetMapping("/showComments")
-	public String showManageComments() {
-		
+	public String showManageComments() {		
 		
 		return "manage-comments";
 	}
@@ -251,8 +250,9 @@ public class BlogController {
 	 * @return true or false - if user has given role 
 	 */
 	private boolean checkIfUserHasRole(String roleName) {
-		 boolean hasUserRole = SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream()
-		            .anyMatch(r -> r.getAuthority().equals(roleName));
+		 boolean hasUserRole = SecurityContextHolder
+				 			.getContext().getAuthentication().getAuthorities().stream()
+		            		.anyMatch(r -> r.getAuthority().equals(roleName));
 		 
 		 return hasUserRole;
 	}
