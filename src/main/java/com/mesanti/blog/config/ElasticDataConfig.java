@@ -13,8 +13,8 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "com.nilangpatel.blogpress.repository")
-@ComponentScan(basePackages = { "com.nilangpatel.blogpress.config" })
+@EnableElasticsearchRepositories(basePackages = "com.mesanti.blog.repositories")
+@ComponentScan(basePackages = { "com.mesanti.blog.config" })
 public class ElasticDataConfig {
 
 	 	@Value("${elasticsearch.host}")
