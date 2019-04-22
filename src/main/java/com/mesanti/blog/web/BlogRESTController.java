@@ -20,7 +20,7 @@ import com.mesanti.blog.models.Comment;
 import com.mesanti.blog.services.BlogService;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class BlogRESTController {
 
 	private Logger logger =  LoggerFactory.getLogger(BlogRESTController.class);
@@ -36,8 +36,9 @@ public class BlogRESTController {
 		List<Comment> commentLst = null;
 		for(Blog blog: allBlogs) {
 			if(blog.getComments() !=null && !blog.getComments().isEmpty()) {
-				commentLst = blog.getComments().stream().
-						filter(comment->comment.getStatus().equalsIgnoreCase("A"))
+				commentLst = blog.getComments()
+						.stream()
+						.filter(comment->comment.getStatus().equalsIgnoreCase("A"))
 						.collect(Collectors.toList());
 				if(commentLst !=null) {
 					blog.setComments(commentLst);
