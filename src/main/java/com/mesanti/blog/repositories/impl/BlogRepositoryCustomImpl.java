@@ -106,7 +106,6 @@ public class BlogRepositoryCustomImpl implements BlogRepositoryCustom {
 			}
 		}
 		
-		//Adding one to set next sequence.		
 		currentChildSeq=currentChildSeq+1;
 				
 		return currentChildSeq;
