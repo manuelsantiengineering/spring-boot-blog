@@ -46,7 +46,7 @@ public class ElasticDataConfig {
 	    public ElasticsearchTemplate elasticsearchTemplate() throws Exception {
 	    	Client client = client();
 	    	ElasticsearchTemplate esTemplate = new ElasticsearchTemplate(client);
-	    	System.out.println("\n\n\n\n\n Done\n\n\n\n\n");
+//	    	System.out.println("\n\n\n\n\n Done\n\n\n\n\n");
 	        return esTemplate;
 	    }
 
