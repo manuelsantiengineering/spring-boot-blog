@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ import com.mesanti.blog.repositories.BlogRepository;
 @Component
 public class BlogService {
 
-	private Logger logger =  LoggerFactory.getLogger(BlogService.class);
+//	private Logger logger =  LoggerFactory.getLogger(BlogService.class);
 	
 	@Autowired
 	private BlogRepository blogRepository;

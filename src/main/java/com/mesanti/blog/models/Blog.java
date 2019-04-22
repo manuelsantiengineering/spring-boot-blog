@@ -13,6 +13,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mesanti.blog.utils.BlogpressCommentComparator;
 import com.mesanti.blog.utils.BlogpressUtil;
 
+// The @Document annotation defines the index and document type name
+// that this class is associated with in elasticsearch.
 @Document(indexName = "blog", type = "blog")
 public class Blog {
 
@@ -34,102 +36,70 @@ public class Blog {
 	@Field(includeInParent=true, type = FieldType.Nested)
 	private List<Comment> comments;
 		
-	/**
-	 * @return the id
-	 */
+
 	public String getId() {
 		return _id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+
 	public void setId(String id) {
 		this._id = id;
 	}
-	/**
-	 * @return the title
-	 */
+
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
-	 */
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the body
-	 */
+
 	public String getBody() {
 		return body;
 	}
-	/**
-	 * @param body the body to set
-	 */
+
 	public void setBody(String body) {
 		this.body = body;
 	}
-	/**
-	 * @return the status
-	 */
+
 	public String getStatus() {
 		return status;
 	}
-	/**
-	 * @param status the status to set
-	 */
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	/**
-	 * @return the createdBy
-	 */
+
 	public String getCreatedBy() {
 		return createdBy;
 	}
-	/**
-	 * @param createdBy the createdBy to set
-	 */
+
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-	/**
-	 * @return the createdDate
-	 */
+
 	public Date getCreatedDate() {
 		return createdDate;
 	}
-	/**
-	 * @param createdDate the createdDate to set
-	 */
+
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	/**
-	 * @return the publishDate
-	 */
+
 	public Date getPublishDate() {
 		return publishDate;
 	}
-	/**
-	 * @param publishDate the publishDate to set
-	 */
+
 	public void setPublishDate(Date publishDate) {
 		this.publishDate = publishDate;
 	}
-	/**
-	 * @return the comments
-	 */
+
 	public List<Comment> getComments() {
 		if(comments !=null && !comments.isEmpty()) {
 			Collections.sort(comments, new BlogpressCommentComparator());
 		}
 		return comments;
 	}
-	/**
-	 * @param comments the comments to set
-	 */
+
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
