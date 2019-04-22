@@ -59,6 +59,7 @@ public class BlogService {
 	public List<Comment> getCommentsForStatus(String status, int from, int size){
 		return blogRepository.getCommentsForStatus(status, from, size);
 	}
+	
 	public void updateCommentStatus(String blogId,String commentId, List<Comment> commentList, String updatedStatus) {
 		if(commentList !=null) {
 			for(Comment comment: commentList) {

@@ -76,7 +76,7 @@ public class BlogController {
 	public String addNewBlog(	@RequestParam(value = "title",required = true) String title,
 			 					@RequestParam(value = "body",required = true) String body,Model model) {
 		
-		logger.info("Adding new blog with title :"+title );
+		logger.info("Adding new blog with title :"+title);
 		Blog blog = new Blog();
 		blog.setTitle(title);
 		blog.setBody(body);
@@ -244,11 +244,6 @@ public class BlogController {
 		return "redirect:viewBlog?blogId="+blogId;
 	}
 	
-	/**
-	 * This method will check if current logged in user has given role
-	 * @param roleName
-	 * @return true or false - if user has given role 
-	 */
 	private boolean checkIfUserHasRole(String roleName) {
 		 boolean hasUserRole = SecurityContextHolder
 				 			.getContext().getAuthentication().getAuthorities().stream()
@@ -256,12 +251,7 @@ public class BlogController {
 		 
 		 return hasUserRole;
 	}
-	
-	/**
-	 * This method will check if valid user is logged in.
-	 * @return boolean if user is logged In
-	 */
-	@ModelAttribute("validUserLogin")
+		@ModelAttribute("validUserLogin")
 	public boolean isUserLoggedIn() {
 		return SecurityContextHolder.getContext().getAuthentication() != null 
 				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() 
@@ -279,21 +269,11 @@ public class BlogController {
 		return checkIfUserHasRole(BlogpressConstants.ROLE_USER);
 	}
 	
-	/**
-	 * This method will return current user name
-	 * @return
-	 */
 	@ModelAttribute("currentUserName")
 	public String getCurrentUserName() {
-			return SecurityContextHolder.getContext().getAuthentication().getName();
-	    
+			return SecurityContextHolder.getContext().getAuthentication().getName();	    
 	}
 	
-	/**
-	 * This method stores various data which are required on presentation layer.
-	 * @param model
-	 * @param pageTitle
-	 */
 	private void setProcessingData(Model model,String pageTitle) {
 		model.addAttribute(BlogpressConstants.PAGE_TITLE, pageTitle);
 	}
